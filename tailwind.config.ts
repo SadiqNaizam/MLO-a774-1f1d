@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 export default {
-	darkMode: ["class"],
+	darkMode: ["class"], // Preserved as PRD is silent and it existed
 	content: [
 		"./pages/**/*.{ts,tsx}",
 		"./components/**/*.{ts,tsx}",
@@ -38,7 +38,7 @@ export default {
 				},
 				muted: {
 					DEFAULT: 'hsl(var(--muted))',
-					foreground: 'hsl(var(--muted-foreground))'
+					foreground: 'hsl(var(--muted-foreground))' // PRD secondaryText mapped here
 				},
 				accent: {
 					DEFAULT: 'hsl(var(--accent))',
@@ -52,22 +52,19 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+        // Custom colors from PRD
+        header: 'hsl(var(--fb-header-bg))', // For bg-header, PRD colorPalette.header
+        sidebarText: 'hsl(var(--fb-sidebar-text-val))', // For text-sidebarText and bg-sidebarText, PRD colorPalette.sidebarText
 			},
 			borderRadius: {
+        // Based on --radius which is 0.375rem (rounded-md from PRD)
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+      fontFamily: {
+        sans: ['Helvetica', 'Arial', 'sans-serif'], // PRD primaryFont
+      },
 			keyframes: {
 				'accordion-down': {
 					from: {
